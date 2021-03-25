@@ -42,8 +42,7 @@ void * firstList(List * list) {
 }
 
 void * nextList(List * list) {
-  Node *aux=list->current;
-  aux=aux->next;
+  Node *aux=list->current->next;
     return (void*)aux;
 }
 
