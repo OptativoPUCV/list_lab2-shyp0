@@ -77,16 +77,6 @@ list->head=aux;
 }
 
 void pushBack(List * list, const void * data) {
-  Node *aux2=createNode(data);
- if (list->head==NULL){
-    list->head=aux2;
-    list->tail=aux2;
- }
- else{
-    aux2->prev=list->tail;
-    list->tail->next=aux2;
- }
-list->tail=aux2;
     list->current = list->tail;
     pushCurrent(list,data);
 }
