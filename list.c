@@ -88,10 +88,10 @@ void pushCurrent(List * list, const void * data) {
     list->tail=aux2;
  }
  else{
-    aux2->prev=list->tail;
-    list->tail->next=aux2;
+    aux2->prev=list->current;
+    list->current->next=aux2;
  }
-  list->tail=aux2;
+  list->current=aux2;
   
 }
 
