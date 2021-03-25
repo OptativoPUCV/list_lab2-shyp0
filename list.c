@@ -79,14 +79,14 @@ list->head=aux;
 void pushBack(List * list, const void * data) {
   Node *aux=createNode(data);
  if (list->head==NULL){
-   list->head=aux;
-   list->tail=aux;
+    list->head=aux;
+    list->tail=aux;
  }
  else{
-  aux->prev=list->tail;
-  list->tail->next=aux;
-  list->head=aux;
+    aux->prev=list->tail;
+    list->tail->next=aux;
  }
+  list->tail=aux;
     list->current = list->tail;
     pushCurrent(list,data);
 }
