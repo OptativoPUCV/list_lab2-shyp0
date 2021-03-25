@@ -91,7 +91,7 @@ void pushCurrent(List * list, const void * data) {
     aux2->prev=list->current;
     list->current->next=aux2;
  }
-  list->current=aux2;
+  list->tail=aux2;
   
 }
 
