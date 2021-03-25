@@ -46,7 +46,7 @@ void * nextList(List * list) {
     return NULL;
   }
   else 
-  list->current=list->current->next;
+  list->current=list->head->next;
   return (void*)list->current->data;
 }
 
