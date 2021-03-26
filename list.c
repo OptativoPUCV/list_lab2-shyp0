@@ -109,10 +109,11 @@ void * popCurrent(List * list) {
   if (aux->prev!=NULL){
     aux->prev->next=aux->next;
   }
-  else list->head=aux->next;
   if(aux->next!=NULL){
-    aux->next->prev=aux->prev;
+  aux->next->prev=aux->prev;
   }
+  else list->head=aux->next;
+
   list->current=list->head;
     return (void*) aux->data;
 }
