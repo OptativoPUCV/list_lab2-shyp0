@@ -110,18 +110,18 @@ void * popCurrent(List * list) {
     free(list->current);
     //list->current=list->head;
     list->head->prev=NULL;
-  return  (void*) list->head->data;
+  return  (void*) list->current->data;
   }
   if(list->current->next==NULL){
     list->tail=list->current->prev;
     free(list->current);
     //list->current=list->tail;
     list->tail->next=NULL;
-    return  (void*) list->tail->data;
+    return  (void*) list->current->data;
   }
 
  //list->current=list->head;
-  return  (void*) list->head->data;
+  return  (void*) list->current->data;
 }
  
 
