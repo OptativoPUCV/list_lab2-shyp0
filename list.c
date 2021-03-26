@@ -105,24 +105,23 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-  int* aux=(int*)list->current->data;
   if (list->current==list->head){
     list->head=list->current->next;
     free(list->current);
     list->current=list->head;
     list->head->prev=NULL;
-  return  (void*) aux;
+  return  (void*) list->current->data;
   }
   if(list->current==list->tail){
     list->tail=list->current->prev;
     free(list->current);
     list->current=list->tail;
     list->tail->next=NULL;
-    return  (void*) aux;
+    return  (void*) list->current->data;
   }
   
  //list->current=list->head;
-  return  (void*) aux;
+  return  (void*) list->current->data;
 }
  
 
