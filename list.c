@@ -114,10 +114,10 @@ void * popCurrent(List * list) {
     aux=list->current;
     free(list->current);
     //reasigna el valor al current de la nueva cabeza
-    list->current=list->head;
+    list->current=aux;
     //senala que lo previo a la cabeza es null
     list->head->prev=NULL;
-  return  (void*) aux;
+  return  (void*) list->current->data;
   }
   //verifica que el current este en el tail
   if(list->current==list->tail){
