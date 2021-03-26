@@ -111,7 +111,7 @@ void * popCurrent(List * list) {
     }
   aux->next=list->current->next;
   list->current=list->head;
-    return (void*) aux;
+    return (void*) list->current;
 }
  
 
