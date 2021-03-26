@@ -110,9 +110,10 @@ void * popCurrent(List * list) {
       aux=aux->next;
     }
   aux->next=list->current->next;
-  free(list->current);
     return (void*) aux;
+  free(list->current);
 }
+ 
 
 void cleanList(List * list) {
     while (list->head != NULL) {
