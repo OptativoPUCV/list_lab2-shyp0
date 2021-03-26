@@ -105,31 +105,48 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-  //verifica que el 
+  //verifica que el primer dato sea la cabeza
   if (list->current==list->head){
+    //mueve el valor de la cabeza 
     list->head=list->current->next;
+    //libera el valor del nodo de la cabeza antigua
     free(list->current);
+    //reasigna el valor al current de la nueva cabeza
     list->current=list->head;
+    //senala que lo previo a la cabeza es null
     list->head->prev=NULL;
   return  (void*) list->current->data;
   }
+  //verifica que el current este en el tail
   if(list->current==list->tail){
+    //reasigno el valor de cola uno antes 
     list->tail=list->current->prev;
+    //libero el nodo del antiguo cola
     free(list->current);
+    //reasigno el valor del current por el nuevo valor de cola
     list->current=list->tail;
+    //indico que el valor siguiente de la cola es null
     list->tail->next=NULL;
     return  (void*) list->current->data;
   }
+  //verifica que no este en una cabeza el current
   if (list->current->prev!=NULL){
+    //hace que el nodo previo al current apunte al nodo siguiente del current
     list->current->prev->next=list->current->next;
   }
   //else list->head=list->current->next;
+  //verifica que no este en una cola
   if(list->current->next!=NULL){
+    //hace que el nodo siguiente al current apunte al nodo previo del current
     list->current->next->prev=list->current->prev;
   }
+  //aux que guarda el valor del current
   void* aux;
+  //asigno el valor a aux del current siguiente 
   aux=list->current->next;
+  //libero el nodo current;
   free(list->current);
+  //reasigno el valor a current por el siguiente de este que estaba guardado en aux
   list->current=aux;
   return  (void*) list->current->data;
 }
