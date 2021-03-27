@@ -105,7 +105,8 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-  Node* aux=createNode(list->current->data);
+  Node* aux=createNode(list->current->data);\
+  void* aux2=list->current;
   if(list->current!=NULL){
     if (list->current==list->head){
       list->head=list->current->next;
@@ -124,12 +125,13 @@ void * popCurrent(List * list) {
     //verifica que no este en una cola
     if(list->current->next!=NULL){
       list->current->next->prev=list->current->prev;
+      aux2=list->current->next;
     }
     free(list->current);
+    list->current=aux2;
   }
   return  (void*) aux->data;
 }
- 
 
 void cleanList(List * list) {
     while (list->head != NULL) {
