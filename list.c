@@ -106,7 +106,7 @@ void * popBack(List * list) {
 
 void * popCurrent(List * list) {
   Node* aux=createNode(list->current->data);\
-  void* aux2=list->current;
+  void* aux2;
   if(list->current!=NULL){
     if (list->current==list->head){
       list->head=list->current->next;
